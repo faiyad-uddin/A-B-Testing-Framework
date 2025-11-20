@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A/B Test - Landing Page Headline</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .cta-button {
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+    .variantA {
+      background-color: #4CAF50; /* White */
+      color: white;
+    }
+    .variantB {
+      background-color: #008CBA; /* Black */
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="headline"></h1>
+  <button id="ctaButton" class="cta-button"></button>
+
+  <script>
+    // A/B Test Logic: Randomly assign users to Variant A or Variant B
+    const variants = ['A', 'B'];
+    const variant = variants[Math.floor(Math.random() * variants.length)];
+
+    // Set up content based on the variant
+    if (variant === 'A') {
+      document.getElementById('headline').textContent = 'Welcome to Our Amazing Service!';
+      document.getElementById('ctaButton').textContent = 'Get Started Now';
+      document.getElementById('ctaButton').classList.add('variantA');
+      console.log('Variant A');
+    } else {
+      document.getElementById('headline').textContent = 'Unlock Your Potential with Our Service!';
+      document.getElementById('ctaButton').textContent = 'Join Us Today';
+      document.getElementById('ctaButton').classList.add('variantB');
+      console.log('Variant B');
+    }
+  </script>
+</body>
+</html>
