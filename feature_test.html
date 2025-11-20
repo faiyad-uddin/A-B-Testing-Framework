@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A/B Test - Feature Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .form-container {
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .variantA input, .variantB input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .variantA button, .variantB button {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sign Up</h1>
+  <div id="formContainer" class="form-container"></div>
+
+  <script>
+    // A/B Test Logic: Randomly assign users to Variant A (new form) or Variant B (old form)
+    const variants = ['A', 'B'];
+    const variant = variants[Math.floor(Math.random() * variants.length)];
+
+    // Set up form based on the variant
+    if (variant === 'A') {
+      document.getElementById('formContainer').innerHTML = `
+        <h2>New Sign-Up Form</h2>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <button type="submit">Sign Up</button>
+      `;
+      console.log('Variant A (New Form Layout)');
+    } else {
+      document.getElementById('formContainer').innerHTML = `
+        <h2>Old Sign-Up Form</h2>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <button type="submit">Register</button>
+      `;
+      console.log('Variant B (Old Form Layout)');
+    }
+  </script>
+</body>
+</html>
